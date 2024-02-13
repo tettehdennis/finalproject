@@ -15,9 +15,6 @@ resource "aws_nat_gateway" "nat_gateway_az1" {
   tags = {
     Name = "${var.project_name}-${var.environment}-ng-az1"
   }
-
-  # to ensure proper ordering, it is recommended to add an explicit dependency
-  # on the internet gateway for the vpc
   depends_on = [var.internet_gateway]
 }
 
